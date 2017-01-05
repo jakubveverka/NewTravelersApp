@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using FreeTravelersApp.ViewModels;
 using FreeTravelersApp.Models;
 
-namespace FreeTravelersApp
+namespace FreeTravelersApp.Pages
 {
 	public partial class UsersListPage : ContentPage
 	{
@@ -17,10 +17,15 @@ namespace FreeTravelersApp
 			scrollView.Content = listContent;
 
 			var usersViewModel = new UsersViewModel();
-			usersViewModel.GetUsersAsync(listContent);
+			usersViewModel.GetUsersAsync(listContent, GoToProfilPage);
 
 			layout.Children.Add(scrollView);
 			Content = layout;
+		}
+
+		public void GoToProfilPage(int userId)
+		{
+			Navigation.PushAsync(new ProfilPage(userId));
 		}
 	}
 }

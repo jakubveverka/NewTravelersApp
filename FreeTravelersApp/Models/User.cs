@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace FreeTravelersApp.Models
 {
 	public class User
@@ -11,6 +12,7 @@ namespace FreeTravelersApp.Models
 		public bool IsGuide { get; set; }
 		public DateTime? GuideFrom { get; set; }
 		public int IdentityId { get; set; }
+		public List<Visit> Visits { get; set; }
 
 		public User()
 		{

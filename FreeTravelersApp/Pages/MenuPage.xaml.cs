@@ -11,7 +11,7 @@ namespace FreeTravelersApp.Pages
 
         public MenuPage()
         {
-            InitializeComponent();      
+            InitializeComponent(); 
 
 			var menuPageItems = new List<FreeTravelersApp.ListViewItems.MenuItem>();
 			menuPageItems.Add(new FreeTravelersApp.ListViewItems.MenuItem

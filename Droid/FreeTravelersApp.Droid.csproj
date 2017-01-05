@@ -108,9 +108,7 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-    <AndroidResource Include="Resources\drawable\about.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\about.png" />
     <AndroidResource Include="Resources\drawable\guides.png" />
     <AndroidResource Include="Resources\drawable\help.png" />
     <AndroidResource Include="Resources\drawable\logo.png" />

@@ -69,17 +69,17 @@
     <Compile Include="ViewModels\UsersViewModel.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Network.cs" />
-    <Compile Include="Pages\ProfilPage.xaml.cs">
-      <DependentUpon>ProfilPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Models\Location.cs" />
     <Compile Include="Pages\LocationsPage.xaml.cs">
       <DependentUpon>LocationsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\LocationsViewModel.cs" />
-    <Compile Include="Pages\LocationDetailPage.xaml.cs">
-      <DependentUpon>LocationDetailPage.xaml</DependentUpon>
+    <Compile Include="Pages\LocationDetailPage.cs" />
+    <Compile Include="Pages\ProfilPage.cs" />
+    <Compile Include="Pages\AddLocationPage.xaml.cs">
+      <DependentUpon>AddLocationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Visit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -155,13 +155,10 @@
     <EmbeddedResource Include="Pages\UsersListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\ProfilPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="Pages\LocationsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\LocationDetailPage.xaml">
+    <EmbeddedResource Include="Pages\AddLocationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

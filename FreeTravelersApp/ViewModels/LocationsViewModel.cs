@@ -42,7 +42,7 @@ namespace FreeTravelersApp
 			return await network.FetchResponseAsync<Location>(url);
 		}
 
-		public async void GetLocationAsync(Layout<View> container, int locationId)
+		public async Task<Location> GetLocationAsync(Layout<View> container, int locationId)
 		{
 			var location = await network.WaitRequest(container, () => GetLocation(locationId));
 			if (location != null)
@@ -53,8 +53,22 @@ namespace FreeTravelersApp
 				container.Children.Add(new Label() { Text = string.Format("Adresa: {0}", location.Address) });
 				container.Children.Add(new Label() { Text = string.Format("Registrováno: {0}", location.RegisterDate.ToString()) });
 			}
+			return location;
 		}
 
+		public async void CreateLocation(String name, String address, String desctiption)
+		{
+			var url = "http://freetravelers.gear.host/Location/Create";
+			var location = new Location() { Name = name, Address = address, Description = desctiption, CreatorId = "1093", RegisterDate = DateTime.Now.ToString(), CategoryId = "1" };
+			await network.PostRequestAsync(url, location, l => l.Name, l => l.Address, l => l.Description, l => l.CreatorId, l => l.RegisterDate, l => l.CategoryId);
+		}
 
+		public async void CreateVisit(int userId, int guideId, int locationId, string date)
+		{
+			var url = "http://freetravelers.gear.host/Visit/Create";
+			var visit = new Visit() { VisitorId = userId.ToString(), GuideId = guideId.ToString(), LocationId = locationId.ToString(), Date = date };
+			await network.PostRequestAsync(url, visit, v => v.VisitorId, v => v.GuideId, v => v.LocationId, v => v.Date);
+		}
+ 
 	}
 }

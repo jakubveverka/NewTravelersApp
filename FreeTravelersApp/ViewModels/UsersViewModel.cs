@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Net.Http;
 using FreeTravelersApp.Models;
+using System;
                       
 namespace FreeTravelersApp.ViewModels
 {
@@ -21,14 +22,16 @@ namespace FreeTravelersApp.ViewModels
 			return await network.FetchResponseAsync<List<User>>(url);
 		}
 
-		public async void GetUsersAsync(Layout<View> container)
+		public async void GetUsersAsync(Layout<View> container, Action<int> GoToProfilPage)
 		{
 			var users = await network.WaitRequest(container, GetUsers);
 			if (users != null)
 			{
 				foreach (var user in users)
 				{
-					container.Children.Add(new Frame() { Content = new Label() { Text = string.Format("{0} {1} {2}", user.Id, user.FirstName, user.LastName) } });
+					Label label = new Label() { Text = string.Format("{0} {1} {2}", user.Id, user.FirstName, user.LastName) };
+					label.GestureRecognizers.Add(new TapGestureRecognizer((view) => GoToProfilPage(user.Id)));
+					container.Children.Add(new Frame() { Content = label });
 				}
 			}
 		}

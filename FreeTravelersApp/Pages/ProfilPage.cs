@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using FreeTravelersApp.ViewModels;
 
-namespace FreeTravelersApp
+namespace FreeTravelersApp.Pages
 {
-	public partial class LocationDetailPage : ContentPage
+	public class ProfilPage : ContentPage
 	{
-		public LocationDetailPage(int locationId)
+		public ProfilPage(int userId = 1093)
 		{
 			var layout = new StackLayout();
 			var scrollView = new ScrollView();
@@ -15,11 +16,12 @@ namespace FreeTravelersApp
 
 			scrollView.Content = listContent;
 
-			var locationsViewModel = new LocationsViewModel();
-			locationsViewModel.GetLocationAsync(listContent, locationId);
+			var usersViewModel = new UsersViewModel();
+			usersViewModel.GetUserAsync(listContent, userId.ToString());
 
 			layout.Children.Add(scrollView);
 			Content = layout;
 		}
+
 	}
 }
